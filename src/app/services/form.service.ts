@@ -7,7 +7,7 @@ import { Question, Response } from '../models/question.models';
   providedIn: 'root'
 })
 export class FormService {
-  private apiUrl = '/api/ChatGPT'; // Cambiado a la ruta del proxy
+  private apiUrl = 'https://apiwebprueba.azurewebsites.net/api/ChatGPT'; // Reemplaza con la URL de tu API
 
   constructor(private http: HttpClient) { }
 
