@@ -1,0 +1,36 @@
+<app-navbar></app-navbar>
+<section class="content">
+  <div class="container">
+    <div class="chat-container">
+      <!-- Área de respuestas -->
+      <div *ngIf="response" class="message assistant-message">
+        <div class="message-content">
+          <p>{{ response }}</p>
+        </div>
+      </div>
+
+      <!-- Formulario de entrada -->
+      <div class="input-area">
+        <form [formGroup]="questionForm" (ngSubmit)="onSubmit()">
+          <div class="input-container">
+            <input type="text" class="input-field" id="question" formControlName="question" placeholder="Escribe tu pregunta aquí..." />
+            <button type="submit" class="send-button" [disabled]="isLoading">
+              <ng-container *ngIf="!isLoading; else loadingIcon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="send-icon">
+                  <path d="M3.478 2.405a.75.75 0 00-.926.94l2.432 7.905H13.5a.75.75 0 010 1.5H4.984l-2.432 7.905a.75.75 0 00.926.94 60.519 60.519 0 0018.445-8.986.75.75 0 000-1.218A60.517 60.517 0 003.478 2.405z" />
+                </svg>
+              </ng-container>
+              <ng-template #loadingIcon>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="loading-icon">
+                  <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" stroke-dasharray="31.4" stroke-dashoffset="31.4" fill="none">
+                    <animateTransform attributeName="transform" type="rotate" from="0 12 12" to="360 12 12" dur="1s" repeatCount="indefinite" />
+                  </circle>
+                </svg>
+              </ng-template>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

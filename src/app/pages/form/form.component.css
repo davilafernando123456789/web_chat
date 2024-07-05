@@ -1,0 +1,126 @@
+body {
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+  }
+  
+  .content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 60px);
+    background-color: #1a1a1a;
+  }
+  
+  .container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .chat-container {
+    background-color: #2a2a2a;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+  }
+  
+  .message {
+    padding: 20px;
+    border-bottom: 1px solid #3a3a3a;
+  }
+  
+  .assistant-message {
+    background-color: #303030;
+  }
+  
+  .message-content {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #e0e0e0;
+  }
+  
+  .input-area {
+    padding: 20px;
+  }
+  
+  .input-container {
+    display: flex;
+    align-items: center;
+    background-color: #3a3a3a;
+    border-radius: 24px;
+    padding: 8px 16px;
+  }
+  
+  .input-field {
+    flex: 1;
+    border: none;
+    background: transparent;
+    font-size: 16px;
+    padding: 8px;
+    outline: none;
+    color: #e0e0e0;
+  }
+  
+  .input-field::placeholder {
+    color: #999999;
+  }
+  
+  .send-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin-left: 8px;
+  }
+  
+  .send-icon {
+    width: 24px;
+    height: 24px;
+    color: #4a9eff;
+  }
+
+ 
+  
+  .input-field {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .send-button {
+    background-color: #007bff;
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+  
+  .send-button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+  }
+  
+  .send-icon {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .loading-icon {
+    width: 24px;
+    height: 24px;
+    animation: rotate 1s linear infinite;
+  }
+  
+  @keyframes rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
