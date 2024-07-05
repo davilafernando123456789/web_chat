@@ -10,7 +10,7 @@ import { Question, Response } from '../../models/question.models';
 })
 export class FormComponent {
   questionForm: FormGroup;
-  response: string | undefined;
+  response: string | undefined | null;
   isLoading = false; // Estado de carga
 
   constructor(private fb: FormBuilder, private formService: FormService) {
@@ -24,14 +24,19 @@ export class FormComponent {
       this.isLoading = true; // Inicia el estado de carga
       const question: Question = this.questionForm.value;
       this.formService.sendQuestion(question).subscribe(
-        (data: Response) => {
-          this.response = data.response;
+        (data: Response | null) => {
+          if (data && data.response) {
+            this.response = data.response;
+          } else {
+            this.response = 'No response received'; // Maneja el caso de respuesta nula
+          }
           this.isLoading = false; // Termina el estado de carga
           this.questionForm.reset(); // Limpia el campo de entrada
         },
         error => {
           console.error(error);
           this.isLoading = false; // Termina el estado de carga en caso de error
+          this.response = 'An error occurred'; // Maneja el caso de error
         }
       );
     }
